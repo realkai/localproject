@@ -1,0 +1,673 @@
+{
+	"meta": {
+		"type": "db",
+		"canSave": true,
+		"canEdit": true,
+		"canStar": true,
+		"slug": "DASHBOARDNAME",
+		"expires": "0001-01-01T00:00:00Z",
+		"created": "CREATEDATE",
+		"updated": "CREATEDATE"
+	},
+	"dashboard": {
+		"annotations": {
+			"list": []
+		},
+		"editable": true,
+		"hideControls": false,
+		"id": null,
+		"links": [],
+		"originalTitle": "DASHBOARDNAME",
+		"refresh": false,
+		"rows": [{
+			"collapse": false,
+			"editable": true,
+			"height": "250px",
+			"panels": [{
+				"aliasColors": {
+					"RSSI:A_IP": "#1F78C1",
+					"RSSI:Z_IP": "#EAB839"
+				},
+				"bars": false,
+				"datasource": null,
+				"editable": true,
+				"error": false,
+				"fill": 1,
+				"grid": {
+					"leftLogBase": 1,
+					"leftMax": null,
+					"leftMin": null,
+					"rightLogBase": 1,
+					"rightMax": null,
+					"rightMin": null,
+					"threshold1": A_THRESHOLD,
+					"threshold1Color": "rgb(21, 255, 0)",
+					"threshold2": Z_THRESHOLD,
+					"threshold2Color": "rgb(161, 40, 202)",
+					"thresholdLine": true
+				},
+				"id": 3,
+				"interval": "",
+				"isNew": true,
+				"leftYAxisLabel": "[dBm]",
+				"legend": {
+					"alignAsTable": true,
+					"avg": true,
+					"current": true,
+					"hideEmpty": false,
+					"max": true,
+					"min": true,
+					"rightSide": false,
+					"show": true,
+					"total": false,
+					"values": true
+				},
+				"lines": true,
+				"linewidth": 2,
+                 "links":[  
+                     {  
+                        "dashboard":"",
+                        "params":"",
+                        "targetBlank":true,
+                        "title":"CGS",
+                        "type":"absolute",
+                        "url":"https://cgs.wiline.com"
+                     },
+                     {  
+                        "targetBlank":true,
+                        "title":"Logical Node Map",
+                        "type":"absolute",
+                        "url":"https://cgs.wiline.com/modules.php?action=LogicalNodeMap\u0026notheme=1\u0026nosysmsg=1\u0026lmap=1\u0026rfid=RFIDA"
+                     },
+                     {  
+                        "targetBlank":true,
+                        "title":"Google Map A",
+                        "type":"absolute",
+                        "url":"http://maps.google.com/?q=A1,Z1"
+                     },
+                     {  
+                        "targetBlank":true,
+                        "title":"Google Map Z",
+                        "type":"absolute",
+                        "url":"http://maps.google.com/?q=A2,Z2"
+                     },
+                     {  
+                        "targetBlank":true,
+                        "title":"Icinga A",
+                        "type":"absolute",
+                        "url":"https://icinga2.wiline.com/icingaweb2/dashboard#!/icingaweb2/monitoring/host/show?host=A_HOST"
+                     },
+                     {  
+                        "targetBlank":true,
+                        "title":"Icinga Z",
+                        "type":"absolute",
+                        "url":"https://icinga2.wiline.com/icingaweb2/dashboard#!/icingaweb2/monitoring/host/show?host=Z_HOST"
+                     }
+                  ],
+				"nullPointMode": "connected",
+				"percentage": false,
+				"pointradius": 5,
+				"points": false,
+				"renderer": "flot",
+				"rightYAxisLabel": "",
+				"seriesOverrides": [],
+				"span": 12,
+				"stack": false,
+				"steppedLine": true,
+				"targets": [{
+					"alias": "RSSI:A_IP",
+					"bucketAggs": [{
+						"field": "receivedDate",
+						"id": "2",
+						"settings": {
+							"interval": "1m",
+							"min_doc_count": 1
+						},
+						"type": "date_histogram"
+					}],
+					"dsType": "elasticsearch",
+					"metrics": [{
+						"field": "rssi",
+						"id": "1",
+						"meta": {},
+						"settings": {},
+						"type": "avg"
+					}],
+					"query": "ip:A_IP",
+					"refId": "A",
+					"timeField": "receivedDate"
+				}, {
+					"alias": "RSSI:Z_IP",
+					"bucketAggs": [{
+						"field": "receivedDate",
+						"id": "2",
+						"settings": {
+							"interval": "1m",
+							"min_doc_count": 1
+						},
+						"type": "date_histogram"
+					}],
+					"dsType": "elasticsearch",
+					"metrics": [{
+						"field": "rssi",
+						"id": "1",
+						"meta": {},
+						"settings": {},
+						"type": "avg"
+					}],
+					"query": "ip:Z_IP",
+					"refId": "B",
+					"timeField": "receivedDate"
+				}],
+				"timeFrom": null,
+				"timeShift": null,
+				"title": "RSSI A/Z Side",
+				"tooltip": {
+					"shared": true,
+					"value_type": "cumulative"
+				},
+				"type": "graph",
+				"x-axis": true,
+				"y-axis": true,
+				"y_formats": ["short", "short"]
+			}],
+			"title": "New row"
+		}, {
+			"collapse": false,
+			"editable": true,
+			"height": "250px",
+			"panels": [{
+				"aliasColors": {
+					"A_IP": "#094890"
+				},
+				"bars": false,
+				"datasource": null,
+				"editable": true,
+				"error": false,
+				"fill": 1,
+				"grid": {
+					"leftLogBase": 1,
+					"leftMax": null,
+					"leftMin": null,
+					"rightLogBase": 1,
+					"rightMax": null,
+					"rightMin": null,
+					"threshold1": A_THRESHOLD,
+					"threshold1Color": "rgb(51, 216, 27)",
+					"threshold2": null,
+					"threshold2Color": "rgba(234, 112, 112, 0.22)",
+					"thresholdLine": true
+				},
+				"id": 5,
+				"isNew": true,
+				"leftYAxisLabel": "[dBm]",
+				"legend": {
+					"alignAsTable": true,
+					"avg": true,
+					"current": true,
+					"max": true,
+					"min": true,
+					"show": true,
+					"total": false,
+					"values": true
+				},
+				"lines": true,
+				"linewidth": 2,
+				"links": [],
+				"nullPointMode": "connected",
+				"percentage": false,
+				"pointradius": 5,
+				"points": false,
+				"renderer": "flot",
+				"seriesOverrides": [],
+				"span": 5,
+				"stack": false,
+				"steppedLine": true,
+				"targets": [{
+					"alias": "A_IP",
+					"bucketAggs": [{
+						"field": "receivedDate",
+						"id": "2",
+						"settings": {
+							"interval": "1m",
+							"min_doc_count": 1
+						},
+						"type": "date_histogram"
+					}],
+					"dsType": "elasticsearch",
+					"metrics": [{
+						"field": "rssi",
+						"id": "1",
+						"meta": {},
+						"settings": {},
+						"type": "avg"
+					}],
+					"query": "ip:A_IP",
+					"refId": "A",
+					"timeField": "receivedDate"
+				}],
+				"timeFrom": null,
+				"timeShift": null,
+				"title": "RSSI A",
+				"tooltip": {
+					"shared": true,
+					"value_type": "cumulative"
+				},
+				"type": "graph",
+				"x-axis": true,
+				"y-axis": true,
+				"y_formats": ["short", "short"]
+			}, {
+			   "content":"\u003cbr\u003e\u003cspan style=\"font-size:12px\" \u003e CGS Actual RSL Values: \u003c/span\u003e\u003cbr\u003e\n\u003cb style=\"font-size:12px\" \u003eA\u003c/b\u003e:\u003cspan style=\"font-size:12px\" \u003e A_THRESHOLD [dBm] \u003c/span\u003e\u003cbr\u003e\n\u003cb style=\"font-size:12px\" \u003eZ\u003c/b\u003e:\u003cspan style=\"font-size:12px\" \u003e Z_THRESHOLD [dBm] \u003c/span\u003e\u003cbr\u003e\n\u003cbr\u003e\n\u003cb style=\"font-size:12px\" \u003eLink Distance\u003c/b\u003e:\u003cspan style=\"font-size:12px\" \u003e LINKDISTANCE [miles] \u003c/span\u003e\u003cbr\u003e\n\u003cb style=\"font-size:12px\" \u003eA Netname\u003c/b\u003e:\u003cspan style=\"font-size:12px\" \u003e A_NETNAME \u003c/span\u003e\u003cbr\u003e\n\u003cb style=\"font-size:12px\" \u003eZ Netname\u003c/b\u003e:\u003cspan style=\"font-size:12px\" \u003e Z_NETNAME \u003c/span\u003e\u003cbr\u003e\n\u003cb style=\"font-size:12px\" \u003eA Address\u003c/b\u003e: \u003cspan style=\"font-size:12px\" \u003e1127 A_ADDRESSS \u003c/span\u003e\u003cbr\u003e\n\u003cb style=\"font-size:12px\" \u003eZ Address\u003c/b\u003e: \u003cspan style=\"font-size:12px\" \u003e128 Z_ADDRESSS \u003c/span \u003e\u003cbr\u003e",
+              	"editable": true,
+				"error": false,
+				"id": 11,
+				"isNew": true,
+				"links": [],
+				"mode": "html",
+				"span": 2,
+				"style": {},
+				"title": "RSL",
+				"type": "text"
+			}, {
+				"aliasColors": {
+					"Z_IP": "#CCA300"
+				},
+				"bars": false,
+				"datasource": null,
+				"editable": true,
+				"error": false,
+				"fill": 1,
+				"grid": {
+					"leftLogBase": 1,
+					"leftMax": null,
+					"leftMin": null,
+					"rightLogBase": 1,
+					"rightMax": null,
+					"rightMin": null,
+					"threshold1": Z_THRESHOLD,
+					"threshold1Color": "rgb(172, 34, 255)",
+					"threshold2": null,
+					"threshold2Color": "rgba(234, 112, 112, 0.22)",
+					"thresholdLine": true
+				},
+				"id": 6,
+				"isNew": true,
+				"leftYAxisLabel": "[dBm]",
+				"legend": {
+					"alignAsTable": true,
+					"avg": true,
+					"current": true,
+					"max": true,
+					"min": true,
+					"show": true,
+					"total": false,
+					"values": true
+				},
+				"lines": true,
+				"linewidth": 2,
+				"links": [],
+				"nullPointMode": "connected",
+				"percentage": false,
+				"pointradius": 5,
+				"points": false,
+				"renderer": "flot",
+				"seriesOverrides": [],
+				"span": 5,
+				"stack": false,
+				"steppedLine": false,
+				"targets": [{
+					"alias": "Z_IP",
+					"bucketAggs": [{
+						"field": "receivedDate",
+						"id": "2",
+						"settings": {
+							"interval": "1m",
+							"min_doc_count": 1
+						},
+						"type": "date_histogram"
+					}],
+					"dsType": "elasticsearch",
+					"metrics": [{
+						"field": "rssi",
+						"id": "1",
+						"meta": {},
+						"settings": {},
+						"type": "avg"
+					}],
+					"query": "ip:Z_IP",
+					"refId": "A",
+					"timeField": "receivedDate"
+				}],
+				"timeFrom": null,
+				"timeShift": null,
+				"title": "RSSI Z",
+				"tooltip": {
+					"shared": true,
+					"value_type": "cumulative"
+				},
+				"type": "graph",
+				"x-axis": true,
+				"y-axis": true,
+				"y_formats": ["short", "short"]
+			}],
+			"title": "New row"
+		}, {
+			"collapse": false,
+			"editable": true,
+			"height": "250px",
+			"panels": [{
+				"aliasColors": {
+					"RSSI:A_IP": "#1F78C1",
+					"RSSI:Z_IP": "#EAB839"
+				},
+				"bars": false,
+				"datasource": null,
+				"editable": true,
+				"error": false,
+				"fill": 1,
+				"grid": {
+					"leftLogBase": 1,
+					"leftMax": null,
+					"leftMin": null,
+					"rightLogBase": 1,
+					"rightMax": null,
+					"rightMin": null,
+					"threshold1": null,
+					"threshold1Color": "rgb(21, 255, 0)",
+					"threshold2": null,
+					"threshold2Color": "rgb(161, 40, 202)",
+					"thresholdLine": false
+				},
+				"id": 12,
+				"interval": "",
+				"isNew": true,
+				"leftYAxisLabel": "[dB]",
+				"legend": {
+					"alignAsTable": true,
+					"avg": true,
+					"current": true,
+					"hideEmpty": false,
+					"max": true,
+					"min": true,
+					"rightSide": false,
+					"show": true,
+					"total": false,
+					"values": true
+				},
+				"lines": true,
+				"linewidth": 2,
+				"links": [],
+				"nullPointMode": "connected",
+				"percentage": false,
+				"pointradius": 5,
+				"points": false,
+				"renderer": "flot",
+				"rightYAxisLabel": "",
+				"seriesOverrides": [],
+				"span": 12,
+				"stack": false,
+				"steppedLine": true,
+				"targets": [{
+					"alias": "CINR:A_IP",
+					"bucketAggs": [{
+						"field": "receivedDate",
+						"id": "2",
+						"settings": {
+							"interval": "1m",
+							"min_doc_count": 1
+						},
+						"type": "date_histogram"
+					}],
+					"dsType": "elasticsearch",
+					"metrics": [{
+						"field": "cinr",
+						"id": "1",
+						"meta": {},
+						"settings": {},
+						"type": "avg"
+					}],
+					"query": "ip:A_IP",
+					"refId": "A",
+					"timeField": "receivedDate"
+				}, {
+					"alias": "CINR:Z_IP",
+					"bucketAggs": [{
+						"field": "receivedDate",
+						"id": "2",
+						"settings": {
+							"interval": "1m",
+							"min_doc_count": 1
+						},
+						"type": "date_histogram"
+					}],
+					"dsType": "elasticsearch",
+					"metrics": [{
+						"field": "cinr",
+						"id": "1",
+						"meta": {},
+						"settings": {},
+						"type": "avg"
+					}],
+					"query": "ip:Z_IP",
+					"refId": "B",
+					"timeField": "receivedDate"
+				}],
+				"timeFrom": null,
+				"timeShift": null,
+				"title": "CINR A/Z Side",
+				"tooltip": {
+					"shared": true,
+					"value_type": "cumulative"
+				},
+				"type": "graph",
+				"x-axis": true,
+				"y-axis": true,
+				"y_formats": ["short", "short"]
+			}],
+			"title": "New row"
+		}, {
+			"collapse": false,
+			"editable": true,
+			"height": "250px",
+			"panels": [{
+				"aliasColors": {
+					"A_IP": "#1F78C1"
+				},
+				"bars": false,
+				"datasource": null,
+				"decimals": 0,
+				"editable": true,
+				"error": false,
+				"fill": 1,
+				"grid": {
+					"leftLogBase": 1,
+					"leftMax": null,
+					"leftMin": null,
+					"rightLogBase": 1,
+					"rightMax": null,
+					"rightMin": null,
+					"threshold1": null,
+					"threshold1Color": "rgba(216, 200, 27, 0.27)",
+					"threshold2": null,
+					"threshold2Color": "rgba(234, 112, 112, 0.22)"
+				},
+				"id": 4,
+				"isNew": true,
+				"legend": {
+					"alignAsTable": true,
+					"avg": true,
+					"current": true,
+					"max": true,
+					"min": true,
+					"show": true,
+					"total": false,
+					"values": true
+				},
+				"lines": true,
+				"linewidth": 2,
+				"links": [],
+				"nullPointMode": "connected",
+				"percentage": false,
+				"pointradius": 5,
+				"points": false,
+				"renderer": "flot",
+				"seriesOverrides": [],
+				"span": 5,
+				"stack": false,
+				"steppedLine": true,
+				"targets": [{
+					"alias": "A_IP",
+					"bucketAggs": [{
+						"field": "receivedDate",
+						"id": "2",
+						"settings": {
+							"interval": "1m",
+							"min_doc_count": 1
+						},
+						"type": "date_histogram"
+					}],
+					"dsType": "elasticsearch",
+					"metrics": [{
+						"field": "modulation",
+						"id": "1",
+						"meta": {},
+						"settings": {},
+						"type": "avg"
+					}],
+					"query": "ip:A_IP",
+					"refId": "A",
+					"timeField": "receivedDate"
+				}],
+				"timeFrom": null,
+				"timeShift": null,
+				"title": "Modulation A",
+				"tooltip": {
+					"shared": true,
+					"value_type": "individual"
+				},
+				"transparent": false,
+				"type": "graph",
+				"x-axis": true,
+				"y-axis": true,
+				"y_formats": ["short", "short"]
+			}, {
+				"content": "\u003cbr\u003eModulation values (Y axis) correspond to the following modulation types:\u003cbr\u003e\u003cbr\u003e\n\u003cb\u003e1\u003c/b\u003e: QPSK\u003cbr\u003e\n\u003cb\u003e2\u003c/b\u003e: QAM-16\u003cbr\u003e\n\u003cb\u003e3\u003c/b\u003e: QAM-64",
+				"editable": true,
+				"error": false,
+				"id": 9,
+				"isNew": true,
+				"links": [],
+				"mode": "html",
+				"span": 2,
+				"style": {},
+				"title": "Legend",
+				"type": "text"
+			}, {
+				"aliasColors": {
+					"A_IP": "#1F78C1",
+					"Z_IP": "#CCA300"
+				},
+				"bars": false,
+				"datasource": null,
+				"decimals": 0,
+				"editable": true,
+				"error": false,
+				"fill": 1,
+				"grid": {
+					"leftLogBase": 1,
+					"leftMax": null,
+					"leftMin": null,
+					"rightLogBase": 1,
+					"rightMax": null,
+					"rightMin": null,
+					"threshold1": null,
+					"threshold1Color": "rgba(216, 200, 27, 0.27)",
+					"threshold2": null,
+					"threshold2Color": "rgba(234, 112, 112, 0.22)"
+				},
+				"id": 7,
+				"isNew": true,
+				"leftYAxisLabel": "",
+				"legend": {
+					"alignAsTable": true,
+					"avg": true,
+					"current": true,
+					"max": true,
+					"min": true,
+					"show": true,
+					"total": false,
+					"values": true
+				},
+				"lines": true,
+				"linewidth": 2,
+				"links": [],
+				"nullPointMode": "connected",
+				"percentage": false,
+				"pointradius": 5,
+				"points": false,
+				"renderer": "flot",
+				"rightYAxisLabel": "",
+				"seriesOverrides": [],
+				"span": 5,
+				"stack": false,
+				"steppedLine": true,
+				"targets": [{
+					"alias": "Z_IP",
+					"bucketAggs": [{
+						"field": "receivedDate",
+						"id": "2",
+						"settings": {
+							"interval": "1m",
+							"min_doc_count": 1
+						},
+						"type": "date_histogram"
+					}],
+					"dsType": "elasticsearch",
+					"metrics": [{
+						"field": "modulation",
+						"id": "1",
+						"meta": {},
+						"settings": {},
+						"type": "avg"
+					}],
+					"query": "ip:Z_IP",
+					"refId": "A",
+					"timeField": "receivedDate"
+				}],
+				"timeFrom": null,
+				"timeShift": null,
+				"title": "Modulation Z",
+				"tooltip": {
+					"shared": true,
+					"value_type": "individual"
+				},
+				"transparent": false,
+				"type": "graph",
+				"x-axis": true,
+				"y-axis": true,
+				"y_formats": ["short", "short"]
+			}],
+			"title": "New row"
+		}],
+		"schemaVersion": 8,
+		"sharedCrosshair": false,
+		"style": "dark",
+		"tags": [],
+		"templating": {
+			"list": []
+		},
+		"time": {
+			"from": "now-24h",
+			"to": "now"
+		},
+		"timepicker": {
+			"now": true,
+			"refresh_intervals": ["5s", "10s", "30s", "1m", "5m", "15m", "30m", "1h", "2h", "1d"],
+			"time_options": ["5m", "15m", "1h", "6h", "12h", "24h", "2d", "7d", "30d"]
+		},
+		"timezone": "browser",
+		"title": "DASHBOARDNAME",
+		"version": 0
+	}
+}
